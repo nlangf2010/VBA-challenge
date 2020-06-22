@@ -1,0 +1,169 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Sub stocks_test()\
+\
+'create a script that will loop through all the stocks for one year and output:\
+ \
+ 'the ticker symbol\
+ Dim ticker_symbol As String\
+ \
+ 'yearly change from opening price at the beginning of a year to the closing price at the end of that year\
+ Dim Yearly_Change As Double\
+\
+ \
+'percent change from opening price at beg of year to closing price at end of year\
+Dim Percent_Change As Integer\
+Percent_Change = 0\
+\
+'total stock of volume\
+Dim Total_Vol As Long\
+Total_Vol = 0\
+\
+\
+'keep track of location for ticker symbol\
+Dim Output_Table_Row As Integer\
+Output_Table_Row = 2\
+\
+'figure out yearly change\
+Dim j As Integer\
+j = 0\
+Dim start As Long\
+start = 2\
+\
+'loop through all ticker symbols\
+For I = 2 To 70926\
+\
+'Check when ticker symbol changes\
+\
+    If Cells(I + 1, 1).Value <> Cells(I, 1).Value Then\
+        \
+    \
+        'add to the total volume\
+        Total_Vol = Total_Vol + Cells(I, 7).Value\
+     \
+        'print ticker symbol to output table\
+       If Total = 0 Then\
+               ' print the results\
+               Range("I" & 2 + j).Value = Cells(I, 1).Value\
+               \
+               Range("J" & 2 + j).Value = (Cells(I, 6) - Cells(I, 3))\
+               \
+               Range("K" & 2 + j).Value = "%" & ((Cells(I, 6) / Cells(I, 3) * 100))\
+               \
+               Range("L" & 2 + j).Value = Cells(I, 7).Value\
+           Else\
+               ' Find First non zero starting value\
+               If Cells(start, 3) = 0 Then\
+               \
+                   For find_value = start To I\
+                   \
+                       If Cells(find_value, 3).Value <> 0 Then\
+                       \
+                           start = find_value\
+                           \
+                           Exit For\
+                           \
+                       End If\
+                       \
+                    Next find_value\
+                    \
+            End If\
+            \
+    If Cell.Value < 0 Then\
+    Range("J" & 2 + j).Value = Cell.Interior.Value = 3\
+    \
+    ElseIf Cell.Value > 0 Then\
+    Range("J" & 2 + j).Value = Cell.Interior.Value = 4\
+    \
+    End If\
+    \
+    \
+Next\
+            \
+        End If\
+               \
+        Total_Vol = 0\
+        j = j + 1\
+    \
+    End If\
+        \
+Next I\
+\
+\
+End Sub\
+\
+Sub WorksheetLoop()\
+ Sub WorksheetLoop2()\
+\
+         ' Declare Current as a worksheet object variable.\
+         Dim Current As Worksheet\
+\
+         ' Loop through all of the worksheets in the active workbook.\
+         For Each Current In Worksheets\
+\
+            ' Insert your code here.\
+            'figure out yearly change\
+Dim j As Integer\
+j = 0\
+Dim start As Long\
+start = 2\
+\
+'loop through all ticker symbols\
+For I = 2 To 70926\
+\
+'Check when ticker symbol changes\
+\
+    If Cells(I + 1, 1).Value <> Cells(I, 1).Value Then\
+    \
+        'set ticker symbol\
+        \
+    \
+        'add to the total volume\
+        Total_Vol = Total_Vol + Cells(I, 7).Value\
+     \
+        'print ticker symbol to output table\
+       If Total = 0 Then\
+               ' print the results\
+               Range("I" & 2 + j).Value = Cells(I, 1).Value\
+               \
+               Range("J" & 2 + j).Value = (Cells(I, 6) - Cells(I, 3))\
+               \
+               Range("K" & 2 + j).Value = "%" & ((Cells(I, 6) / Cells(I, 3) * 100))\
+               \
+               Range("L" & 2 + j).Value = Cells(I, 7).Value\
+           Else\
+               ' Find First non zero starting value\
+               If Cells(start, 3) = 0 Then\
+               \
+                   For find_value = start To I\
+                   \
+                       If Cells(find_value, 3).Value <> 0 Then\
+                       \
+                           start = find_value\
+                           \
+                           Exit For\
+                           \
+                       End If\
+                       \
+                    Next find_value\
+                    \
+            End If\
+            \
+        End If\
+               \
+        Total_Vol = 0\
+        j = j + 1\
+    \
+    End If\
+        \
+Next I\
+            ' This line displays the worksheet name in a message box.\
+            MsgBox Current.Name\
+         Next\
+\
+End Sub}
